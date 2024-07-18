@@ -1,6 +1,6 @@
 # Mark van Wyk Code Ev
 
-# Instructions
+### Instructions
 
 This is a Spring Boot Java application that is managed by Gradle. The Gradle build configuration file is in `build.gradle` and the app properties are found in `/src/main/resources/application.properties` 
 
@@ -19,6 +19,11 @@ The application uses an in-memory database. The database can be accessed by:
     | JDBC URL     | jdbc:h2:mem:testdb |
     | user         | sa                 |
     | password     | *&lt;blank&gt;*    |
+
+### Running the tests
+
+1. The tests are in /src/test/java/co.fxflow.evaluation.ArbitrageDetector
+2. ./gradle2 
 
 ### Known Issues:
 

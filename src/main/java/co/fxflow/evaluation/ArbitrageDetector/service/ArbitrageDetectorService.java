@@ -43,30 +43,15 @@ public class ArbitrageDetectorService {
 
     public void detectArbitrage(String startingCurrency, Map<String, Double> exchangeRates) {
 
-        new ArbitrageDetection().cycleCurrencies(exchangeRates);
+        Map<String, Double> pathsAndGains = new ArbitrageDetection().scanAndRecurse(startingCurrency, exchangeRates);
+        pathsAndGains.forEach((k, v) -> {
 
-        // Go to a function that searches through an array. Pass it the starting currency
+        });
 
-        // -> Inner Function
-        // Go through the array, looking for tickers that start with from[0]
-        // Take note of the exchange rate 1 GBP = 1.5 USD.
-        // Pass it through
+        // I have found in my limited experimentation that starting the triangles from different corners doesn't affact
+        // the result. In my limited understanding, this makes sense to me as 1 * 2 * 3 is the same as 3 * 2 * 1\
 
-        // -> Inner Function
-        // Go through the array, looking for tickers that start with to[0]
-        // and that do not end in from [0]
-        // Remember the 1.5 USD from before multiply it by the 0.7 EUR
-        // Take note of the exchange rate 1.5 USD = 0.7 EUR
-        // Passed through value multipled by exchange rate.
-
-        // -> Inner Function
-        // Go through the array, looking for tickers that start with to[1]
-        // and that end in from[0]
-        // Take note of the exchange rate
-        // Passed through value multiplied by exchange rate.
-
-        // If the opportunity > 0 log it in the table
-
+        // new ArbitrageDetection().cycleCurrencies(exchangeRates);
 
 
     }
