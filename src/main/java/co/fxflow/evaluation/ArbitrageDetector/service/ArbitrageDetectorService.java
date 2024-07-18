@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
+
 
 @Service
 public class ArbitrageDetectorService {
@@ -22,15 +22,18 @@ public class ArbitrageDetectorService {
         this.marketDataRepository = marketDataRepository;
     }
 
+    /**
+     * Scans historic data and puts the latest forex rates into a map. Right now this is called by a controller. To use
+     * this feature, allow the MarketGeneratorService a few seconds to run, then call /historic which will trigger an
+     * action in the Web controller that in turn will call this function.
+     */
     public void scanHistoricData() {
+
         /* @TODO I am aware that we need to set a window in here */
 
         List<MarketData> marketData = marketDataRepository.findAll(Sort.by(Sort.Direction.ASC, "timestamp"));
         marketData.forEach(forexRate -> {
-
             latestRates.put(forexRate.getTicker(), forexRate.getForexRate());
-
-
         });
     }
 
@@ -40,8 +43,7 @@ public class ArbitrageDetectorService {
 
     public void detectArbitrage(String startingCurrency, Map<String, Double> exchangeRates) {
 
-
-        new ArbitrageDetection().scanAndRecurse("GBP", exchangeRates);
+        new ArbitrageDetection().cycleCurrencies(exchangeRates);
 
         // Go to a function that searches through an array. Pass it the starting currency
 
