@@ -20,12 +20,12 @@ public class InitialCurrenciesService {
     public void init() {
 
         marketDataParamRepository.saveAll((List.of(
-            new MarketDataParam("GBP", "EUR", 1.19, 0.2),
-            new MarketDataParam("GBP", "USD", 1.30, 0.2),
-            new MarketDataParam("EUR", "GBP", 0.84, 0.2),
-            new MarketDataParam("EUR", "USD", 1.09, 0.2),
-            new MarketDataParam("USD", "GBP", 0.77, 0.2),
-            new MarketDataParam("USD", "EUR", 0.92, 0.2)
+            new MarketDataParam("GBP", "EUR", 1.19, 0.1),
+            new MarketDataParam("GBP", "USD", 1.30, 0.1),
+            new MarketDataParam("EUR", "GBP", 0.84, 0.1),
+            new MarketDataParam("EUR", "USD", 1.09, 0.1),
+            new MarketDataParam("USD", "GBP", 0.77, 0.1),
+            new MarketDataParam("USD", "EUR", 0.92, 0.1)
         )));
 
     }

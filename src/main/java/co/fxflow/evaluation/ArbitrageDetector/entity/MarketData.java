@@ -5,21 +5,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-public class MarketDataParam {
-
-    public MarketDataParam() {
-
-    }
-
-    public MarketDataParam(String baseCurrency, String quoteCurrency, Double startingPrice, Double volatilityFactor) {
-        this.baseCurrency = baseCurrency;
-        this.quoteCurrency = quoteCurrency;
-        this.startingPrice = startingPrice;
-        this.volatilityFactor = volatilityFactor;
-    }
+public class MarketData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,8 +17,21 @@ public class MarketDataParam {
 
     private String baseCurrency;
     private String quoteCurrency;
-    private Double startingPrice;
-    private Double volatilityFactor;
+    private Double forexRate;
+    private LocalDateTime timestamp;
+
+    public MarketData() {}
+
+    public MarketData(String baseCurrency, String quoteCurrency, Double forexRate) {
+        this.baseCurrency = baseCurrency;
+        this.quoteCurrency = quoteCurrency;
+        this.forexRate = forexRate;
+        this.timestamp = LocalDateTime.now();
+    }
+
+    public String getTicker() {
+        return baseCurrency.concat("/").concat(quoteCurrency);
+    }
 
     public UUID getId() {
         return id;
@@ -54,19 +57,15 @@ public class MarketDataParam {
         this.quoteCurrency = quoteCurrency;
     }
 
-    public Double getStartingPrice() {
-        return startingPrice;
+    public Double getForexRate() {
+        return forexRate;
     }
 
-    public void setStartingPrice(Double startingPrice) {
-        this.startingPrice = startingPrice;
+    public void setForexRate(Double forexRate) {
+        this.forexRate = forexRate;
     }
 
-    public Double getVolatilityFactor() {
-        return volatilityFactor;
-    }
-
-    public void setVolatilityFactor(Double volatilityFactor) {
-        this.volatilityFactor = volatilityFactor;
+    public LocalDateTime getTimestamp() {
+        return timestamp;
     }
 }
