@@ -17,19 +17,15 @@ public class Opportunity {
 
     private LocalDateTime timestamp;
     private String path;
-    private String baseCurrency;
-    private Double startingValue;
-    private Double returnValue;
+    private Double gain;
 
     public Opportunity() {
 
     }
 
-    public Opportunity(String path, String baseCurrency, Double startingValue, Double returnValue) {
+    public Opportunity(String path, Double gain) {
         this.path = path;
-        this.baseCurrency = baseCurrency;
-        this.startingValue = startingValue;
-        this.returnValue = returnValue;
+        this.gain = gain;
         this.timestamp = LocalDateTime.now();
     }
 
@@ -55,30 +51,6 @@ public class Opportunity {
 
     public void setPath(String path) {
         this.path = path;
-    }
-
-    public String getBaseCurrency() {
-        return baseCurrency;
-    }
-
-    public void setBaseCurrency(String baseCurrency) {
-        this.baseCurrency = baseCurrency;
-    }
-
-    public Double getStartingValue() {
-        return startingValue;
-    }
-
-    public void setStartingValue(Double startingValue) {
-        this.startingValue = startingValue;
-    }
-
-    public Double getReturnValue() {
-        return returnValue;
-    }
-
-    public void setReturnValue(Double returnValue) {
-        this.returnValue = returnValue;
     }
 }
 

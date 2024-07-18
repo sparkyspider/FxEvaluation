@@ -24,7 +24,7 @@ public class Web {
     @ResponseBody
     public String historic() {
         arbitrageDetectorService.scanHistoricData();
-        return "<html><body><h1>See Console!</h1></body></html>";
+        return "<html><body><h1>See Data</h1></body></html>";
     }
 
 }
