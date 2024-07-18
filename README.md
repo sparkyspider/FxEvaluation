@@ -1,4 +1,4 @@
-# Mark van Wyk Code Ev
+# Mark van Wyk Code Evaluation
 
 ### Instructions
 
@@ -38,4 +38,4 @@ At this point, the application does the following:
 ### Known Issues:
 
 1. The Market Data Feed Generator does not keep the volatility swing relative the average. The swing is based on the last value.
-2. 
+2. Only triangles are calculated at the moment, but the recursive function is designed to be easily updated. 
